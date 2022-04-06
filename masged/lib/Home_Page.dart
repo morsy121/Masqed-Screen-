@@ -12,6 +12,15 @@ class _HomePageState extends State<HomePage> {
 
   int currentIndex = 0;
   int currentIndex1 = 0;
+
+  List Taspeh = [
+    "الله واكبر",
+    "الحمد لله",
+    "لا اله الا الله",
+    "سبحان الله",
+  ];
+
+  get index => null;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,10 +79,11 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               setState(() {
                 currentIndex++;
-                if (currentIndex == 50) {
+                if (currentIndex == 33) {
                   setState(() {
                     currentIndex = 0;
                     currentIndex1++;
+                    Taspeh[index];
                   });
                 }
               });
