@@ -12,15 +12,15 @@ class _HomePageState extends State<HomePage> {
 
   int currentIndex = 0;
   int currentIndex1 = 0;
+  int currentIndex2 = 0;
 
   List Taspeh = [
-    "الله واكبر",
-    "الحمد لله",
-    "لا اله الا الله",
     "سبحان الله",
+    "الحمد لله",
+    "الله واكبر",
   ];
 
-  get index => null;
+  //get index => null;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         )),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(
-            "الله واكبر ",
+            "${Taspeh[currentIndex1]}",
             style: TextStyle(fontSize: 24, color: Colors.white),
           ),
           SizedBox(
@@ -80,11 +80,17 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 currentIndex++;
                 if (currentIndex == 33) {
-                  setState(() {
+                  if (currentIndex1 == 2) {
+                    currentIndex1 = 0;
                     currentIndex = 0;
-                    currentIndex1++;
-                    Taspeh[index];
-                  });
+                    Taspeh[currentIndex1];
+                    currentIndex2++;
+                  } else {
+                    setState(() {
+                      currentIndex = 0;
+                      currentIndex1++;
+                    });
+                  }
                 }
               });
             },
@@ -113,6 +119,7 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       currentIndex = 0;
                       currentIndex1 = 0;
+                      currentIndex2 = 0;
                     });
                   },
                   child: Text(
@@ -122,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Spacer(),
                 Text(
-                  "الدورة رقم : $currentIndex1",
+                  "الدورة رقم : $currentIndex2",
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 )
               ],
